@@ -1,0 +1,26 @@
+{
+  "name": "express-bp",
+  "version": "1.0.0",
+  "description": "boilerplate for express api with jwt authentication using mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudolphh/express-bp.git"
+  },
+  "keywords": [
+    "express",
+    "authentication",
+    "jwt",
+    "bcrypt",
+    "mysql"
+  ],
+  "author": "Rudy A. Hernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rudolphh/express-bp/issues"
+  },
+  "homepage": "https://github.com/rudolphh/express-bp#readme"
+}
