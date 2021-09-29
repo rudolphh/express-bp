@@ -56,7 +56,8 @@ app.route('/hello')
     // send a post request (postman) using body as either 
     // "raw" application/json or application/x-www-form-urlencoded
     .post((req, res) => {
-        res.status(200).json({
+        // TODO: make a mysql insert
+        res.status(201).json({ // status code 201 for created
             body : req.body,
         });
     })
@@ -77,8 +78,14 @@ app.get('/hello-world', (req, res) => {
     res.status(200).sendFile('./index.html', { root: __dirname + '/public' });
 });
 
-app.post('/hello-world', (req, res) => {
+app.post('/hello-world', (req, res) => {});
 
+// route parameters - when we want a resource based on some unique identifiable field (like id)
+// use colon and field name, and access with req.params.fieldName
+app.get('/hello-world/:id', (req, res) => {
+    // find record in db by id
+    // return the json object 
+    res.send({ id: req.params.id });
 });
 
 // Binds and listens for connections on the specified host and port
