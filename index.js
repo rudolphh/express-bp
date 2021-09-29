@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use('/assets', express.static('public'));
 
 // .route is used to create chainable route handlers, so
-// you don't have to keep writing out the path like below
+// you don't have to keep writing out the path like below delete (end of chain)
 app.route('/hello')
     .get((req, res) => {
         // .status useful when we start dealing with various server responses
@@ -45,12 +45,14 @@ app.route('/hello')
         // 401 - Unauthorized - lacks authentication
         // 403 - Forbidden - lacks authorization (has been authenticated but not authorized for this resource)
         // 500 - Internal Server Error - generic response when no other error code is suitable
+
+        console.log(req.query);// to get query parameters - e.g. http://site.com/hello?id=5&username=imi
         res.status(200).send('hello');
         // res.status(200).json({ hello: 'world' });
     })
 
     // important: GET, POST, PUT, DELETE are just conventions.
-    // one can still send a body to a GET endpoint, and process it,
+    // one can still send a body to a GET endpoint and process it,
     // but this IS NOT best practice
 
     // send a post request (postman) using body as either 
@@ -78,7 +80,11 @@ app.get('/hello-world', (req, res) => {
     res.status(200).sendFile('./index.html', { root: __dirname + '/public' });
 });
 
-app.post('/hello-world', (req, res) => {});
+app.post('/hello-world', (req, res) => {
+    res.status(201).json({ // status code 201 for created
+        body : req.body,
+    });
+});
 
 // route parameters - when we want a resource based on some unique identifiable field (like id)
 // use colon and field name, and access with req.params.fieldName
