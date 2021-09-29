@@ -26,7 +26,7 @@ app.use(express.json());// for parsing application/json
 // to mimic a json-like structure
 // so: path/name?person[name]=bobby&person[age]=3
 // { person: { name: 'bobby', age: '3' } }
-app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded (forms)
 
 // sets up a virtual path (e.g. http://site.com/assets) for files (css, js, images, etc.)
 // to make publicly available to the client (browser)
@@ -59,6 +59,9 @@ app.route('/hello')
     // "raw" application/json or application/x-www-form-urlencoded
     .post((req, res) => {
         // TODO: make a mysql insert
+
+        // res.json is essentially the same as res.send
+        // it just has some added functionality, and calls res.send after
         res.status(201).json({ // status code 201 for created
             body : req.body,
         });
@@ -73,14 +76,14 @@ app.route('/hello')
     });
 
 // without using .route we have .get and .post with the same path (could be error-prone)
-app.get('/hello-world', (req, res) => {
+app.get('/hello/world', (req, res) => {
     // if we want to serve a static file within an endpoint,
     // give the filename path and where its relative to
     // in this case the root directory of the project (base path) plus '/public' (relative path)
     res.status(200).sendFile('./index.html', { root: __dirname + '/public' });
 });
 
-app.post('/hello-world', (req, res) => {
+app.post('/hello/world', (req, res) => {
     res.status(201).json({ // status code 201 for created
         body : req.body,
     });
