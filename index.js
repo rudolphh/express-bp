@@ -8,7 +8,7 @@ const express = require('express');// include express module (require - CommonJS
 // top level function that gives us routing PLUS EXTRA functions available only for the app
 // not to be confused later with express.Router();
 const app = express();
-const port = 3030;// process.env.PORT - PORT defined in .env added to node's global process.env 
+const port = 3030;// or use process.env.PORT - PORT defined in .env added to node's global process.env 
 
 // app.use mounts a middleware to a specified path (root if no path given)
 
@@ -106,6 +106,7 @@ app.listen(port, (err) => {
     console.log(`Server listening on port ${port}`);
 });
 
+// random port
 // const server = app.listen(((err) => {
 //     if (err) console.log("Error in server setup")
 //     console.log(`Server listening on port ${server.address().port}`);
