@@ -9,9 +9,11 @@ const createUser = async (connection, username, password) => {
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     //convert to timestamp format
     now = now.toISOString().slice(0, 19).replace("T", " ");
+
     await connection.query(`
             INSERT INTO user (username, password, creation_date, updated_date) 
             VALUES ('${username}', '${hashedPassword}', '${now}', '${now}');`);
+
   } catch (err) {
     console.error(err);
   }
@@ -42,7 +44,8 @@ const seedDatabase = async () => {
     // add record to user table
     createUser(connection, "imi", "blahblah3");
     createUser(connection, "rudy", "loveGod1");
-    
+    createUser(connection, "honey", "beeyahboy3");
+
   } catch (err) {
     console.error(err);
   }
