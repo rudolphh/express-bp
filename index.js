@@ -5,6 +5,7 @@
 require('dotenv').config();
 const express = require('express');// include express module (require - CommonJS module system)
 
+// created this function to seed our mysql database with some user data
 const { seedDatabase } = require('./seeder');
 seedDatabase();
 
@@ -102,6 +103,20 @@ app.get('/hello-world/:id', (req, res) => {
     // find record in db by id
     // return the json object 
     res.send({ id: req.params.id });
+});
+
+app.use(require('./middlewares/verifyJwt'));
+app.use(require('./middlewares/dbConnection'));
+app.get('/users', async (req, res) => {
+    // if the token is valid the middleware allowed us to reach the route
+    console.log('the user id is : ', req.userId);
+    try {
+        const [results] = await req.db.query("SELECT * FROM user");
+        res.send(results);
+    } catch (err) {
+        console.err(err);
+        res.send({ error: err.message });
+    }
 });
 
 // Binds and listens for connections on the specified host and port

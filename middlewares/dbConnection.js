@@ -5,6 +5,9 @@ const dbConnection = async (req, res, next) => {
     const connection = await mysqlPool.getConnection();
     connection.config.namedPlaceholders = true;
     req.db = connection;
+    // next is used to pass execution to the next function 
+    // in the middleware stack. to skip the rest of the middleware 
+    // functions use next('route') to jump to the route function
     next();
 };
 
