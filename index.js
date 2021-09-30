@@ -5,6 +5,8 @@
 require('dotenv').config();
 const express = require('express');// include express module (require - CommonJS module system)
 
+require('./seeder')();
+
 // top level function that gives us routing PLUS EXTRA functions available only for the app
 // not to be confused later with express.Router();
 const app = express();
