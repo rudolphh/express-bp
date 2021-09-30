@@ -10,9 +10,11 @@ const createUser = async (connection, username, password) => {
     //convert to timestamp format
     now = now.toISOString().slice(0, 19).replace("T", " ");
 
-    await connection.query(`
+    const [results] = await connection.query(`
             INSERT INTO user (username, password, creation_date, updated_date) 
             VALUES ('${username}', '${hashedPassword}', '${now}', '${now}');`);
+
+    return results.insertId;
 
   } catch (err) {
     console.error(err);
@@ -51,4 +53,4 @@ const seedDatabase = async () => {
   }
 };
 
-module.exports = seedDatabase;
+module.exports = { seedDatabase, createUser };
