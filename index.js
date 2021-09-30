@@ -17,7 +17,7 @@ const port = 3030;// or use process.env.PORT - PORT defined in .env added to nod
 // it isn't necessary for get and delete requests
 
 // .json() accepts body as json when sending the request (parses json)
-// so: { "id": 1, "username": "john"}
+// so: {"id": 1, "username": "john"}
 app.use(express.json());// for parsing application/json
 
 // .urlencoded() accepts body as urlencoded (parses url encoded strings )
@@ -33,6 +33,10 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 // so something like an image in the public folder '/public/images/kitty.jpg' can be
 // viewed in the browser at http://site.com/assets/images/kitty.jpg
 app.use('/assets', express.static('public'));
+
+// bring in other routes
+const authRouter = require('./routes/auth');
+app.use('/', authRouter);
 
 // .route is used to create chainable route handlers, so
 // you don't have to keep writing out the path like below delete (end of chain)
