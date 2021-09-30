@@ -2,6 +2,8 @@ const mysqlPool = require("./database/dbPool");
 const bcrypt = require("bcrypt");
 
 const createUser = async (connection, username, password) => {
+  // enable mysql2 named placeholders syntax
+  connection.config.namedPlaceholders = true;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     let now = new Date(); // get current date time
@@ -10,12 +12,13 @@ const createUser = async (connection, username, password) => {
     //convert to timestamp format
     now = now.toISOString().slice(0, 19).replace("T", " ");
 
-    const [results] = await connection.query(`
-            INSERT INTO user (username, password, creation_date, updated_date) 
-            VALUES ('${username}', '${hashedPassword}', '${now}', '${now}');`);
+    const [results] = await connection.query(
+      `INSERT INTO user (username, password, created_date, updated_date) 
+        VALUES (:username, :hashedPassword, :now, :now)`,
+      { username, hashedPassword, now }
+    );
 
     return results.insertId;
-
   } catch (err) {
     console.error(err);
   }
@@ -38,7 +41,7 @@ const seedDatabase = async () => {
             id INT NOT NULL AUTO_INCREMENT,
             username VARCHAR(15) NOT NULL,
             password CHAR(60) NOT NULL,
-            creation_date TIMESTAMP,
+            created_date TIMESTAMP,
             updated_date TIMESTAMP,
             PRIMARY KEY ( id )
         );`);
@@ -46,8 +49,7 @@ const seedDatabase = async () => {
     // add record to user table
     createUser(connection, "imi", "blahblah3");
     createUser(connection, "rudy", "loveGod1");
-    createUser(connection, "honey", "beeyahboy3");
-
+    createUser(connection, "honey", "loveLove33");
   } catch (err) {
     console.error(err);
   }
