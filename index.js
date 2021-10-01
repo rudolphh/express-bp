@@ -104,9 +104,13 @@ app.get('/hello-world/:id', (req, res) => {
     res.send({ id: req.params.id });
 });
 
-app.use(require('./middlewares/verifyJwt'));
+const verifyJwt = require('./middlewares/verifyJwt');
+// you can use the middleware like this for all routes below app.use
+// app.use(verifyJwt);
 app.use(require('./middlewares/dbConnection'));
-app.get('/users', async (req, res) => {
+// or by providing the middleware function before the route handler
+// to signify the middleware function to be used on this route only
+app.get('/users', verifyJwt, async (req, res) => {
     // if the token is valid the middleware allowed us to reach the route
     console.log('the user id is : ', req.userId);
     try {
