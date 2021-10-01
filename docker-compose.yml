@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  db:
+    image: mysql
+    container_name: mysql-sandbox
+    restart: always
+    ports:
+      - "3306:3306"
+    # command: --init-file /data/application/init.sql
+    # volumes:
+      #  - ./init.sql:/data/application/init.sql
+    environment:
+    # MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+    # MYSQL_USER: root
+    # MYSQL_PASSWORD: secret
+    volumes:
+      - dbdata:/var/lib/mysql
+volumes:
+  dbdata:

@@ -55,7 +55,7 @@ app.route('/hello')
         // 403 - Forbidden - lacks authorization (has been authenticated but not authorized for this resource)
         // 500 - Internal Server Error - generic response when no other error code is suitable
 
-        console.log(req.query);// to get query parameters - e.g. http://site.com/hello?id=5&username=imi
+        console.log(req.query);// to get query parameters - e.g. http://localhost/hello?id=5&username=imi
         res.status(200).send('hello');
         // res.status(200).json({ hello: 'world' });
     })
@@ -71,9 +71,7 @@ app.route('/hello')
 
         // res.json is essentially the same as res.send
         // it just has some added functionality, and calls res.send after
-        res.status(201).json({ // status code 201 for created
-            body : req.body,
-        });
+        res.status(201).send(req.body); // status code 201 for created
     })
 
     .put((req, res) => {

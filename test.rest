@@ -1,0 +1,50 @@
+
+### GET /hello
+GET http://localhost:3030/hello
+
+### POST /hello
+# this will just return whatever is in the request body
+POST http://localhost:3030/hello
+content-type: application/json
+
+{
+    "hello" : "world"
+}
+
+# GET /hello/world will return a web page but
+### POST /hello/world will return a body property with the object we send
+POST http://localhost:3030/hello/world
+content-type: application/json
+
+{
+    "hello" : "world"
+}
+
+### GET /hello-world/:id will return whatever value we put for id
+GET http://localhost:3030/hello-world/3
+
+### GET /users
+# send with a token (text after 'Authorization:') received from running a post to /login
+GET http://localhost:3030/users
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMzMDYwNDI3LCJleHAiOjE2MzMwNjEwMjd9.gNAWDh4VDGVLQG-wm_ejUP7tgi4e_PrEEwg4FDQGRvc
+
+
+### POST /login
+# copy to token given and paste into Authorization: {token} for /users endpoint
+POST http://localhost:3030/login
+content-type: application/json
+
+{
+    "username" : "imi",
+    "password" : "loveDaddy3"
+}
+
+### POST /register
+POST http://localhost:3030/register
+content-type: application/json
+
+{
+    "username" : "newGuy",
+    "password" : "newPass"
+}

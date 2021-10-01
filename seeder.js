@@ -47,7 +47,7 @@ const seedDatabase = async () => {
         );`);
 
     // add record to user table
-    createUser(connection, "imi", "blahblah3");
+    createUser(connection, "imi", "loveDaddy3");
     createUser(connection, "rudy", "loveGod1");
     createUser(connection, "honey", "loveLove33");
   } catch (err) {
