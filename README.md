@@ -9,7 +9,7 @@ git clone https://github.com/rudolphh/express-bp.git
 cd express-bp
 npm install
 ```
-#### Environment
+### Environment
 Create a ***.env*** file in the root directory of the project with the following
 ```
 PORT=3030
@@ -25,7 +25,7 @@ These can be adjusted to your preference, but ***DB_NAME*** is the name of the d
 ### MySQL Installation
 Make sure to have **[MySQL](https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/)** installed for your OS.
 ##### Docker MySQL
-Follow the link above for instructions, or you can use the **docker-compose.yml** file in the root folder, if you have Docker.
+Follow the link above for instructions, or if you have Docker you can use the **docker-compose.yml** file in the root folder.  
 In the project root, just run the command:
 ```
 docker-compose up -d
@@ -37,18 +37,19 @@ npm run start
 Verify the deployment by navigating to your server address [localhost:3030/hello] in your favorite browser
 
 ### Test routes
-If you don't have [Postman](https://www.postman.com/downloads/), or don't care to use it there is a ***test.rest*** file in the root directory which uses the [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension within [VSCode](https://code.visualstudio.com/download) for simple API testing
+If you don't have [Postman](https://www.postman.com/downloads/), or don't care to use it there is a ***test.rest*** file in the root directory.  
+This uses the [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension within [VSCode](https://code.visualstudio.com/download) for simple API testing
 ![Image of test.rest](https://user-images.githubusercontent.com/949014/135563980-59a2d05f-2d5a-4b20-b94a-8fc4718861d1.png)
 
 ### Challenge
 > Build a resource (e.g. Book/Books) by adding appropriate routes, controller, and use middlewares
 
 ***Example:***
-> GET /books to retrieve ALL books
-POST /book to create (insert) a new book
-GET /book/id to get the book with the corresponding id
-PUT /book/id to update a book with the corresponding id
-DELETE /book/id to delete a book with the corresponding id
+> ***GET /books*** - retrieve ALL books  
+***POST /book*** - create (insert) a new book  
+***GET /book/id*** - get the book with the corresponding id  
+***PUT /book/id*** - update a book with the corresponding id  
+***DELETE /book/id*** - delete a book with the corresponding id
 
 > SQL update and delete statements can be [found here](https://www.w3schools.com/sql/sql_update.asp)
 
