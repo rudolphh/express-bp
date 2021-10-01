@@ -44,6 +44,7 @@ app.use('/', authRouter);
 
 // .route is used to create chainable route handlers, so
 // you don't have to keep writing out the path like below delete (end of chain)
+// app.use(require('./middlewares/dbConnection))// if you want to use req.db.query
 app.route('/hello')
     .get((req, res) => {
         // .status useful when we start dealing with various server responses
