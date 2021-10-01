@@ -44,10 +44,10 @@ If you don't have [Postman](https://www.postman.com/downloads/), or don't care t
 > Build a resource (e.g. Book/Books) by adding appropriate routes, controller, and use middlewares
 
 ***Example:***
-> GET /books to retrieve ALL books
-POST /book to create (insert) a new book
-GET /book/id to get the book with the corresponding id
-PUT /book/id to update a book with the corresponding id
+> GET /books to retrieve ALL books  
+POST /book to create (insert) a new book  
+GET /book/id to get the book with the corresponding id  
+PUT /book/id to update a book with the corresponding id  
 DELETE /book/id to delete a book with the corresponding id
 
 > SQL update and delete statements can be [found here](https://www.w3schools.com/sql/sql_update.asp)
