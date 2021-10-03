@@ -1,7 +1,8 @@
 const express = require('express');
 
 // Router is like express(), but more like a mini-app,
-// ONLY capable of performing middleware given (router.use) and routing.
+// ONLY capable of performing any given middleware functions ( w/ router.use)
+// for the created endpoints.
 
 // is used like middleware when the object exported (module.exports)
 // is provided to the app.use to expand the routes of the application
