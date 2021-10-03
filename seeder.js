@@ -39,7 +39,7 @@ const seedDatabase = async () => {
     await connection.query(`
         CREATE TABLE IF NOT EXISTS user (
             id INT NOT NULL AUTO_INCREMENT,
-            username VARCHAR(15) NOT NULL,
+            username VARCHAR(15) UNIQUE NOT NULL,
             password CHAR(60) NOT NULL,
             created_date TIMESTAMP,
             updated_date TIMESTAMP,

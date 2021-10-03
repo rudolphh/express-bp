@@ -67,8 +67,9 @@ const register = async (req, res) => {
     // here we just reuse the function created in seeder instead of having
     // to do it all again here.
     const insertedId = await createUser(req.db, username, password);
-    const [token, refresh_token] = createTokens({ id: insertedId });
+    if(!insertedId) throw new Error("Username already exists");
 
+    const [token, refresh_token] = createTokens({ id: insertedId });
     res.status(201).send({ id: insertedId, token, refresh_token });
   } catch (err) {
     console.error(err);

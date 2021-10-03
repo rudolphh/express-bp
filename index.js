@@ -112,6 +112,7 @@ app.use(require('./middlewares/dbConnection'));
 // to signify the middleware function to be used on this route only
 app.get('/users', verifyJwt, async (req, res) => {
     // if the token is valid the middleware allowed us to reach the route
+    // and we have access to the userId for queries
     console.log('the user id is : ', req.userId);
     try {
         const [results] = await req.db.query("SELECT * FROM user");
