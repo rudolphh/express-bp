@@ -25,7 +25,7 @@ These can be adjusted to your preference, but ***DB_NAME*** is the name of the d
 ### MySQL Installation
 Make sure to have **[MySQL](https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/)** installed for your OS.
 ##### Docker MySQL
-Follow the link above for instructions, or if you have Docker you can use the **docker-compose.yml** file in the root folder.  
+Use the link above for instructions, or if you have Docker use the **docker-compose.yml** file in the root folder.  
 In the project root, just run the command:
 ```
 docker-compose up -d
