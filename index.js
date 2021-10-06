@@ -26,7 +26,7 @@ app.use(express.json());// for parsing application/json
 
 // .urlencoded() accepts body as urlencoded (parses url encoded strings )
 // so: name?id=1&username=john
-// extended means it will accept a url encoding syntax (qs library)
+// 'extended: true' means it will accept a url encoding syntax (qs library)
 // to mimic a json-like structure
 // so: path/name?person[name]=bobby&person[age]=3
 // { person: { name: 'bobby', age: '3' } }
