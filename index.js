@@ -43,7 +43,7 @@ const authRouter = require('./routes/auth');
 app.use('/', authRouter);
 
 // .route is used to create chainable route handlers, so
-// you don't have to keep writing out the path like below delete (end of chain)
+// you don't have to keep writing out the path like for '/hello/world' (end of chain)
 // app.use(require('./middlewares/dbConnection))// if you want to use req.db.query
 app.route('/hello')
     .get((req, res) => {
