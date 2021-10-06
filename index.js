@@ -25,7 +25,7 @@ const port = 3030;// or use process.env.PORT - PORT defined in .env added to nod
 app.use(express.json());// for parsing application/json
 
 // .urlencoded() accepts body as urlencoded (parses url encoded strings )
-// so: path/name?id=1&username=john
+// so: name?id=1&username=john
 // extended means it will accept a url encoding syntax (qs library)
 // to mimic a json-like structure
 // so: path/name?person[name]=bobby&person[age]=3
