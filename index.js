@@ -56,7 +56,7 @@ app.route('/hello')
         // 500 - Internal Server Error - generic response when no other error code is suitable
 
         console.log(req.query);// to get query parameters - e.g. http://localhost/hello?id=5&username=imi
-        res.status(200).send('hello');
+        res.status(200).send('hello world');
         // res.status(200).json({ hello: 'world' });
     })
 
