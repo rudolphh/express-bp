@@ -118,7 +118,7 @@ app.get('/users', verifyJwt, async (req, res) => {
         const [results] = await req.db.query("SELECT * FROM user");
         res.send(results);
     } catch (err) {
-        console.err(err);
+        console.error(err);
         res.send({ error: err.message });
     }
 });
