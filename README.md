@@ -1,5 +1,5 @@
 # Express Basics, and using JWT, Bcrypt, MySQL
-> API Fundamentals, authentication, encryption, and persistence
+> API Fundamentals, authentication, encryption, and persistence 
 
 ### Installation
 [Download here](https://github.com/rudolphh/express-bp/archive/refs/heads/master.zip)
