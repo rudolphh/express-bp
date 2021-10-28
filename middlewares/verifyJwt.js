@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
         // lets attach that id to the request and pass it to the "next"
         // middleware function or route
         req.userId = payload.id;
-        next();
+        next();// continue to next in middleware stack
 
     } catch (err) {
         console.error(err);
